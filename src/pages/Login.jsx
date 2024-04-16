@@ -6,8 +6,9 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    localStorage.setItem("auth_token", "your_token_here");
-    navigate("/");
+    localStorage.setItem("auth_token", "your_token_here", () => {
+      navigate("/");
+    });
   };
 
   return (
