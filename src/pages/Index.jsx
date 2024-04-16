@@ -1,6 +1,8 @@
 import React from "react";
-import { Box, Heading, Text, Image, Flex, Stack, Link, Icon } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Flex, Stack, Link, Icon, Button } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import { Navigate } from "react-router-dom";
+import LogoutButton from "../components/LogoutButton";
 
 const Index = () => {
   return (
@@ -61,7 +63,8 @@ const Index = () => {
       </Box>
 
       {/* Footer */}
-      <Box bg="gray.900" py={8}>
+      <Box bg="gray.900" py={8} px={6}>
+        {localStorage.getItem("auth_token") ? <LogoutButton /> : <Navigate to="/login" />}
         <Flex maxW="3xl" mx="auto" px={6} justifyContent="center" alignItems="center">
           <Link href="#" mr={6}>
             <Icon as={FaFacebook} color="white" boxSize={6} />
